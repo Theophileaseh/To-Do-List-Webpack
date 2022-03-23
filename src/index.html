@@ -14,25 +14,34 @@
         <div class="container">
             <div class="heading-icon div-style">
                 <h2 class="sec-heading">Today's To Do</h2>
-                <i class="fa-solid fa-arrows-rotate"></i>
+                <button class="refresh-btn">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
             </div>
             <div class="form-section div-style">
                 <form action="post" class="form">
                     <div class="inputs">
                         <input type="text" class="input-form main-inputs" placeholder="Add to your list">
                         <button type="submit" class="submit-btn">
-                            <i class="fa-solid fa-turn-down-left"></i>
+                            <i class="fa-solid fa-arrow-up-right-dots"></i>
                         </button>
                     </div>
                 </form>
             </div>
-            <div class="today-lists div-style">
-                <div class="single-list">
+            <div class="today-lists">
+                <div class="single-list div-style">
                     <form class="single-list-form">
                         <input type="checkbox" class="checkbox">
-                        <input type="text" id="single-list-item" class="single-list-input main-inputs">
+                        <input type="text" id="single-list-item" class="single-list-input main-inputs" value="wash the dishes">
                     </form>
-                    <div class="single-list-action-button"></div>
+                    <div class="single-list-action-button"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                </div>
+                <div class="single-list div-style">
+                    <form class="single-list-form">
+                        <input type="checkbox" class="checkbox">
+                        <input type="text" id="single-list-item" class="single-list-input main-inputs" value="complete To Do list project">
+                    </form>
+                    <div class="single-list-action-button"><i class="fa-solid fa-ellipsis-vertical"></i></div>
                 </div>
             </div>
             <div class="clear-all">
