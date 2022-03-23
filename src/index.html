@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do list</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/164f291a18.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <section class="to-do-sec">
+        <div class="container">
+            <div class="heading-icon div-style">
+                <h2 class="sec-heading">Today's To Do</h2>
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
+            <div class="form-section div-style">
+                <form action="post" class="form">
+                    <div class="inputs">
+                        <input type="text" class="input-form main-inputs" placeholder="Add to your list">
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-turn-down-left"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="today-lists div-style">
+                <div class="single-list">
+                    <form class="single-list-form">
+                        <input type="checkbox" class="checkbox">
+                        <input type="text" id="single-list-item" class="single-list-input main-inputs">
+                    </form>
+                    <div class="single-list-action-button"></div>
+                </div>
+            </div>
+            <div class="clear-all">
+                <button class="clear-all-btn">Clear all completed</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
