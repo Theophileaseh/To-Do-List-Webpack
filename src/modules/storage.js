@@ -8,31 +8,27 @@ export const addList = () => {
     const { list } = element;
     if (index % 2 === 0) {
       listCode += `
-        <div class="book changeColor">
-            <div class="sub-book">
-              <p>"${list}" by</p>
-              <p>${author}</p>
-            </div>
-            <button type="submit" class="delete" onclick='removeBook("${list}")'>Remove</button>
-        </div>
-
         <div class="single-list div-style">
           <form class="single-list-form">
             <input type="checkbox" class="checkbox">
             <input type="text" id="single-list-item" class="single-list-input main-inputs" value="${list}">
           </form>
-          <div class="single-list-action-button"></div>
+          <div class="single-list-action-button">
+          <button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+          </div>
         </div>
             `;
     } else {
       listCode += `
-        <div class="book">
-          <div class="sub-book">
-            <p>"${list}" by</p>
-            <p>${author}</p>
-          </div>
-          <button type="submit" class="delete" onclick='removeBook("${list}")'>Remove</button>
-        </div>
+      <div class="single-list div-style">
+      <form class="single-list-form">
+        <input type="checkbox" class="checkbox">
+        <input type="text" id="single-list-items" class="single-list-input main-inputs" value="${list}">
+      </form>
+      <div class="single-list-action-button">
+      <button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+    </div>
             `;
     }
   });
@@ -63,12 +59,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// input field of list clicked event
+
 import { list2 } from './formsubmit.js';
 const moveDelete = document.querySelector('.single-list-action-button');
 
-list2. addEventListener("click", () => {
-  moveDelete.innerHTML = '<button class = "delete-btn"><i class="fa-solid fa-trash-can"></i></button>';
-  },
-  moveDelete.innerHTML = '<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
+/* list2.addEventListener("keyup", (event) => {
+  moveDelete.innerHTML = '<button class = "delete-btn" onclick=\'removeBook("${list}")\'><i class="fa-solid fa-trash-can"></i></button>'
+});
 
-  });
+list2.removeEventListener("click", (event) => {
+  moveDelete.innerHTML = '<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
+});*/
+
+// checkbox event
+
+
+const listValue = document.querySelector('#single-list-item');
+const check = document.querySelector('.checkbox');
+
+check.addEventListener("change", function(e) {
+  if (this.checked) {
+    listValue.classList.add('line-through');
+  } else {
+    listValue.classList.add('none');
+  }
+});
