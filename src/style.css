@@ -82,6 +82,11 @@ body {
   cursor: pointer;
 }
 
+.move-btn {
+  background: none;
+  border: none;
+}
+
 .clear-all {
   height: 60px;
 }
