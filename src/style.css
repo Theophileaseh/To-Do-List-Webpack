@@ -82,10 +82,6 @@ body {
   cursor: pointer;
 }
 
-.delete-btn {
-  cursor: pointer;
-}
-
 .clear-all {
   height: 60px;
 }
@@ -99,9 +95,9 @@ body {
   cursor: pointer;
 }
 
-.single-list-input {
+/* .single-list-input {
   height: ;
-}
+} */
 
 .main-inputs {
   height: 35px;
@@ -109,8 +105,4 @@ body {
   font-size: 16px;
   border: none;
   color: #6b6969;
-}
-
-.main-input:focus, .main-inputs:hover {
-  border: none;
 }
