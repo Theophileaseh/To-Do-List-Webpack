@@ -46,15 +46,14 @@ window.addEventListener('DOMContentLoaded', () => {
   if (lists === null) {
     listArray = [
       {
-        list: 'wash the dishes'
+        list: 'wash the dishes',
       },
       {
-        list: 'complete To Do list project'
+        list: 'complete To Do list project',
       },
     ];
   } else {
     listArray = lists;
   }
   addList();
-
 });
