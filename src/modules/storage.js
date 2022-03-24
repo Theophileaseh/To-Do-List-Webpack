@@ -76,12 +76,22 @@ list2.removeEventListener("click", (event) => {
 
 
 const listValue = document.querySelector('#single-list-item');
-const check = document.querySelector('.checkbox');
+/* const check = document.querySelector('.checkbox');
 
 check.addEventListener("change", function(e) {
   if (this.checked) {
     listValue.classList.add('line-through');
   } else {
-    listValue.classList.add('none');
+    // listValue.classList.add('none');
   }
-});
+});*/
+
+const checked = document.querySelector('#checkbox:checked');
+
+if (checked !== null) {
+  listValue.classList.add('line-through');
+  } else {
+  listValue.classList.add('none');
+}
+
+console.log(listValue);
