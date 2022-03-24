@@ -1,21 +1,38 @@
-import { booksArray, addBook } from './storage.js';
+import { listArray, addList } from './storage.js';
 
-const title = document.querySelector('#title');
-const author = document.querySelector('#author');
+const list = document.querySelector('#list');
 
-const formSubmit = document.querySelector('.book-form');
+const formSubmit = document.querySelector('.form');
 
 formSubmit.addEventListener('submit', (event) => {
-  if (title.value === '' || author.value === '') {
+  if (list.value === '') {
     event.preventDefault();
   }
   event.preventDefault();
-  const bookInput = {
-    title: title.value,
-    author: author.value,
+  const listInput = {
+    list: list.value
   };
-  booksArray.push(bookInput);
-  addBook();
-  title.value = '';
-  author.value = '';
+  listArray.push(listInput);
+  addList();
+  list.value = '';
+});
+
+
+// second form inputs for update
+
+export const list2 = document.querySelector('#single-list-item');
+
+const formSubmit2 = document.querySelector('.single-list-form');
+
+formSubmit.addEventListener('submit', (event) => {
+  if (list2.value === '') {
+    event.preventDefault();
+  }
+  event.preventDefault();
+  const list2Input = {
+    list: list.value
+  };
+  listArray.push(listInput);
+  addList();
+  list.value = '';
 });

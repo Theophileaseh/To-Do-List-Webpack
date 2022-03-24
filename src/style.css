@@ -82,6 +82,10 @@ body {
   cursor: pointer;
 }
 
+.delete-btn {
+  cursor: pointer;
+}
+
 .clear-all {
   height: 60px;
 }

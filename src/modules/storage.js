@@ -1,57 +1,74 @@
-const booksList = document.querySelector('.books-container');
+const listsList = document.querySelector('.today-lists');
 
-export let booksArray = [];
+export let listArray = [];
 
-export const addBook = () => {
-  let booksCode = '';
-  booksArray.forEach((element, index) => {
-    const { title, author } = element;
+export const addList = () => {
+  let listCode = '';
+  listArray.forEach((element, index) => {
+    const { list } = element;
     if (index % 2 === 0) {
-      booksCode += `
+      listCode += `
         <div class="book changeColor">
             <div class="sub-book">
-              <p>"${title}" by</p>
+              <p>"${list}" by</p>
               <p>${author}</p>
             </div>
-            <button type="submit" class="delete" onclick='removeBook("${title}")'>Remove</button>
+            <button type="submit" class="delete" onclick='removeBook("${list}")'>Remove</button>
+        </div>
+
+        <div class="single-list div-style">
+          <form class="single-list-form">
+            <input type="checkbox" class="checkbox">
+            <input type="text" id="single-list-item" class="single-list-input main-inputs" value="${list}">
+          </form>
+          <div class="single-list-action-button"></div>
         </div>
             `;
     } else {
-      booksCode += `
+      listCode += `
         <div class="book">
           <div class="sub-book">
-            <p>"${title}" by</p>
+            <p>"${list}" by</p>
             <p>${author}</p>
           </div>
-          <button type="submit" class="delete" onclick='removeBook("${title}")'>Remove</button>
+          <button type="submit" class="delete" onclick='removeBook("${list}")'>Remove</button>
         </div>
             `;
     }
   });
-  booksList.innerHTML = booksCode;
-  localStorage.setItem('booksData', JSON.stringify(booksArray));
+  listsList.innerHTML = listCode;
+  localStorage.setItem('listData', JSON.stringify(listArray));
 };
 
-window.removeBook = (title) => {
-  booksArray = booksArray.filter((elem) => elem.title !== title);
-  addBook();
+window.removeBook = (list) => {
+  listArray = listArray.filter((elem) => elem.list !== list);
+  addList();
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  const books = JSON.parse(localStorage.getItem('booksData'));
-  if (books === null) {
-    booksArray = [
+  const lists = JSON.parse(localStorage.getItem('listData'));
+  if (lists === null) {
+    listArray = [
       {
-        title: 'The Goods',
-        author: 'Theophile A.',
+        list: 'wash the dishes'
       },
       {
-        title: 'Funny Bone',
-        author: 'NTA',
+        list: 'complete To Do list project'
       },
     ];
   } else {
-    booksArray = books;
+    listArray = lists;
   }
-  addBook();
+  addList();
+
 });
+
+import { list2 } from './formsubmit.js';
+const moveDelete = document.querySelector('.single-list-action-button');
+
+list2. addEventListener("click", () => {
+  moveDelete.innerHTML = '<button class = "delete-btn"><i class="fa-solid fa-trash-can"></i></button>';
+  },
+  moveDelete.innerHTML = '<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
+
+  });
