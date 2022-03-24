@@ -1,6 +1,6 @@
 const listsList = document.querySelector('.today-lists');
 
-export let listArray = [];
+export const listArray = [];
 
 export const addList = () => {
   let listCode = '';
