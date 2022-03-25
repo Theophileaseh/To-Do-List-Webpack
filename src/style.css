@@ -119,3 +119,7 @@ body {
 .none {
   text-decoration: none;
 }
+
+.main-inputs:focus {
+  outline: none;
+}

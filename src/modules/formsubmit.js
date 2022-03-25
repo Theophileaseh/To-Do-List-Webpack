@@ -36,3 +36,4 @@ formSubmit.addEventListener('submit', (event) => {
   addList();
   list.value = '';
 });
+
