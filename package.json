@@ -1,0 +1,34 @@
+{
+  "name": "to-do-list-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theophileaseh/To-Do-List-Webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Theophileaseh/To-Do-List-Webpack/issues"
+  },
+  "homepage": "https://github.com/Theophileaseh/To-Do-List-Webpack#readme",
+  "devDependencies": {
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
