@@ -72,7 +72,8 @@ window.addEventListener('DOMContentLoaded', () => {
 listsList.addEventListener('focusin', (e) => {
   if(e.target.className.includes('single-list-input')){
     const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML = '<button class = "delete-btn" onclick="removeList('${list}')"> // eslint-disable-line
+    parent.querySelector('.single-list-action-button').innerHTML =
+    '<button class = "delete-btn" onclick="removeList('${list}')"> // eslint-disable-line
     <i class="fa-solid fa-trash-can"></i></button>';
   }
 })
