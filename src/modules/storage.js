@@ -16,7 +16,7 @@ export const addList = () => {
             <input type="text" class="single-list-input main-inputs" value="${list}">
           </form>
           <div class="single-list-action-button">
-            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
+            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
         </div>
             `;
@@ -28,7 +28,7 @@ export const addList = () => {
         <input type="text" class="single-list-input main-inputs" value="${list}">
       </form>
       <div class="single-list-action-button">
-        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
+        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
       </div>
     </div>
             `;
@@ -109,9 +109,8 @@ listsList.addEventListener('change', function(e) {
 let isCompleted;
 
 // Remove completed list
-/*
+
 window.removeIsCompleted = (list) => {
   listArray = listArray.filter((elem) => list.isCompleted);
   addList();
 };
-*/
