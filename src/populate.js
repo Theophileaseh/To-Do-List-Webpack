@@ -1,4 +1,6 @@
-import { saveLocal } from './status.js';
+function saveLocal(list) {
+  window.localStorage.setItem('localTasks', JSON.stringify(list));
+}
 
 export function add(list) {
   list.push({ description: document.querySelector('#newTask').value, isCompleted: false, index: list.length + 1 });
