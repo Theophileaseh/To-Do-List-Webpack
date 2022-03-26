@@ -18,7 +18,7 @@ export const addList = () => {
             <input type="text" class="single-list-input main-inputs" value="${list}">
           </form>
           <div class="single-list-action-button">
-            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
           </div>
         </div>
             `;
@@ -30,7 +30,7 @@ export const addList = () => {
         <input type="text" class="single-list-input main-inputs" value="${list}">
       </form>
       <div class="single-list-action-button">
-        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
             `;
@@ -72,15 +72,16 @@ window.addEventListener('DOMContentLoaded', () => {
 listsList.addEventListener('focusin', (e) => {
   if(e.target.className.includes('single-list-input')){
     const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML = 
-    '<button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>';
+    parent.querySelector('.single-list-action-button').innerHTML =
+    '<button class = "delete-btn" onclick="removeList('${list}')"> // eslint-disable-line
+    <i class="fa-solid fa-trash-can"></i></button>';
   }
 })
 listsList.addEventListener('focusout', (e) => {
   if(e.target.className.includes('single-list-input')){
     const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML = 
-    '<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>';
+    parent.querySelector('.single-list-action-button').innerHTML = '<button class = "move-btn">
+    <i class="fa-solid fa-ellipsis-vertical"></i></button>';
 
     const inputValue = e.target.value
     const {id} = parent.id;
@@ -91,13 +92,13 @@ listsList.addEventListener('focusout', (e) => {
       }
     })
 
-    localStorage.setItem('listData', JSON.stringify(listArray));    
+    localStorage.setItem('listData', JSON.stringify(listArray));
   }
 })
 */
 // checkbox event
 
-listsList.addEventListener('change', function(e) { // eslint-disable-line
+listsList.addEventListener('change', function (e) { // eslint-disable-line
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
     const text = e.target.parentNode.querySelector('.single-list-input');
@@ -109,7 +110,6 @@ listsList.addEventListener('change', function(e) { // eslint-disable-line
     }
   }
 });
-
 
 // Remove completed list
 
