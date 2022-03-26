@@ -4,6 +4,8 @@ const listsList = document.querySelector('.today-lists');
 
 export let listArray = [];
 
+/* eslint-disable no-unused-vars */
+
 export const addList = () => {
   let listCode = '';
   listArray.forEach((element, index) => {
@@ -38,6 +40,8 @@ export const addList = () => {
   listsList.innerHTML = listCode;
   localStorage.setItem('listData', JSON.stringify(listArray));
 };
+
+/* eslint-disable no-unused-vars */
 
 window.removeList = (list) => {
   listArray = listArray.filter((elem) => elem.list !== list);
