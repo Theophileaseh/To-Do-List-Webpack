@@ -1,6 +1,4 @@
 const listsList = document.querySelector('.today-lists');
-// const moveDelete = document.querySelector('.single-list-action-button');
-// const listValue = document.querySelector('.single-list-input');
 
 export let listArray = []; // eslint-disable-line
 
@@ -35,7 +33,6 @@ export const addList = () => {
     </div>
             `;
     }
-    // console.log(index);
   });
   listsList.innerHTML = listCode;
   localStorage.setItem('listData', JSON.stringify(listArray));
@@ -46,7 +43,6 @@ export const addList = () => {
 window.removeList = (list) => {
   listArray = listArray.filter((elem) => elem.list !== list);
   addList();
-  // console.log('removed');
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -66,36 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
   addList();
 });
 
-// input field of list clicked event
-
-/*
-listsList.addEventListener('focusin', (e) => {
-  if(e.target.className.includes('single-list-input')){
-    const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML =
-    '<button class = "delete-btn" onclick="removeList('${list}')"> // eslint-disable-line
-    <i class="fa-solid fa-trash-can"></i></button>';
-  }
-})
-listsList.addEventListener('focusout', (e) => {
-  if(e.target.className.includes('single-list-input')){
-    const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML = '<button class = "move-btn">
-    <i class="fa-solid fa-ellipsis-vertical"></i></button>';
-
-    const inputValue = e.target.value
-    const {id} = parent.id;
-
-    listArray.forEach(list => {
-      if(id === list.index){
-        list.description = inputValue
-      }
-    })
-
-    localStorage.setItem('listData', JSON.stringify(listArray));
-  }
-})
-*/
 // checkbox event
 
 listsList.addEventListener('change', function (e) { // eslint-disable-line
@@ -110,11 +76,3 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
     }
   }
 });
-
-// Remove completed list
-/*
-window.removeIsCompleted = (list) => {
-  listArray = listArray.filter((elem) => list.isCompleted);
-  addList();
-};
-*/
