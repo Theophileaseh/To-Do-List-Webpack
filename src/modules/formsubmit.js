@@ -23,7 +23,7 @@ formSubmit.addEventListener('submit', (event) => {
 export const list2 = document.querySelector('#single-list-item');
 
 const formSubmit2 = document.querySelector('.single-list-form');
-
+/*
 formSubmit.addEventListener('submit', (event) => {
   if (list2.value === '') {
     event.preventDefault();
@@ -32,8 +32,13 @@ formSubmit.addEventListener('submit', (event) => {
   const list2Input = {
     list: list.value
   };
-  listArray.push(listInput);
+  listArray.map.push(listInput);
   addList();
   list.value = '';
 });
 
+let listValues = listArray.map(function(listp) {
+  listp.list = listp.list
+
+})
+*/

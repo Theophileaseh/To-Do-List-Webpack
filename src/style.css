@@ -87,6 +87,12 @@ body {
   background: none;
 }
 
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .clear-all {
   height: 60px;
 }
@@ -122,4 +128,8 @@ body {
 
 .main-inputs:focus {
   outline: none;
+}
+
+i {
+  color: #6b6969;
 }
