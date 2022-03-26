@@ -18,22 +18,22 @@ export const addList = () => {
             <input type="text" class="single-list-input main-inputs" value="${list}">
           </form>
           <div class="single-list-action-button">
+            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
+          </div>
+        </div>
+            `; // eslint-disable-line
+    } else {
+      listCode += `
+        <div class="single-list div-style">
+          <form class="single-list-form">
+            <input type="checkbox" class="checkbox">
+            <input type="text" class="single-list-input main-inputs" value="${list}">
+          </form>
+          <div class="single-list-action-button">
             <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
         </div>
-            `;
-    } else {
-      listCode += `
-      <div class="single-list div-style">
-      <form class="single-list-form">
-        <input type="checkbox" class="checkbox">
-        <input type="text" class="single-list-input main-inputs" value="${list}">
-      </form>
-      <div class="single-list-action-button">
-        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-      </div>
-      </div>
-            `;
+            `; // eslint-disable-line
     }
     // console.log(index);
   });
