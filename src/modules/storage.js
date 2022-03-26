@@ -93,6 +93,7 @@ listsList.addEventListener('focusout', (e) => {
 
 // checkbox event
 
+let checkbox = document.querySelector('.checkbox');
 listsList.addEventListener('change', function (e) { // eslint-disable-line
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
@@ -100,6 +101,7 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
 
     if (checked) {
       text.classList.add('line-through');
+      checkbox.checked = list.isCompleted;
     } else {
       text.classList.remove('line-through');
     }
@@ -108,7 +110,7 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
 
 // Remove completed list
 
-window.removeIsCompleted = (list) => {
-  listArray = listArray.filter((elem) => list.isCompleted);
+window.removeIsCompleted = (isCompleted) => {
+  listArray = listArray.filter((elem) => isCompleted);
   addList();
 };
