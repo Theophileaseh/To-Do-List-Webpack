@@ -2,7 +2,7 @@ const listsList = document.querySelector('.today-lists');
 // const moveDelete = document.querySelector('.single-list-action-button');
 // const listValue = document.querySelector('.single-list-input');
 
-export let listArray = [];
+export let listArray = []; // eslint-disable-line
 
 /* eslint-disable no-unused-vars */
 
@@ -97,7 +97,7 @@ listsList.addEventListener('focusout', (e) => {
 */
 // checkbox event
 
-listsList.addEventListener('change', function(e) {
+listsList.addEventListener('change', function(e) { // eslint-disable-line
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
     const text = e.target.parentNode.querySelector('.single-list-input');
@@ -110,7 +110,6 @@ listsList.addEventListener('change', function(e) {
   }
 });
 
-let isCompleted;
 
 // Remove completed list
 
