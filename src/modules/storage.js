@@ -1,7 +1,4 @@
 const listsList = document.querySelector('.today-lists');
-// const moveDelete = document.querySelector('.single-list-action-button');
-// const listValue = document.querySelector('.single-list-input');
-
 export let listArray = []; // eslint-disable-line
 
 /* eslint-disable no-unused-vars */
@@ -77,11 +74,9 @@ listsList.addEventListener('focusin', (e) => {
     <i class="fa-solid fa-trash-can"></i></button>';
   }
 })
+*/
 listsList.addEventListener('focusout', (e) => {
   if(e.target.className.includes('single-list-input')){
-    const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML = '<button class = "move-btn">
-    <i class="fa-solid fa-ellipsis-vertical"></i></button>';
 
     const inputValue = e.target.value
     const {id} = parent.id;
@@ -95,7 +90,7 @@ listsList.addEventListener('focusout', (e) => {
     localStorage.setItem('listData', JSON.stringify(listArray));
   }
 })
-*/
+
 // checkbox event
 
 listsList.addEventListener('change', function (e) { // eslint-disable-line
