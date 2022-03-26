@@ -4,12 +4,10 @@ const listsList = document.querySelector('.today-lists');
 
 export let listArray = [];
 
-export const addList = () =>{
-
+export const addList = () => {
   let listCode = '';
-  listArray.forEach((element, index) =>{
-
-    const { list } = element;    
+  listArray.forEach((element, index) => {
+    const { list } = element;
     if (index % 2 === 0) {
       listCode += `
         <div class="single-list div-style" id="${index}">
@@ -37,7 +35,7 @@ export const addList = () =>{
     }
   });
   listsList.innerHTML = listCode;
-  localStorage.setItem('listData', JSON.stringify(listArray));  
+  localStorage.setItem('listData', JSON.stringify(listArray));
 };
 
 window.removeList = (list) => {
@@ -65,10 +63,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // checkbox event
 
-let isCompleted;
-
 listsList.addEventListener('change', function (e) {
-  if (e.target.className.includes('checkbox')){
+  if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
     const text = e.target.parentNode.querySelector('.single-list-input');
 
@@ -79,12 +75,3 @@ listsList.addEventListener('change', function (e) {
     }
   }
 });
-
-// Remove completed list
-
-/*
-window.removeIsCompleted = (list) => {
-  listArray = listArray.filter((elem) => list.isCompleted);
-  addList();
-};
-*/
