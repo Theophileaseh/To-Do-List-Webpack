@@ -1,6 +1,9 @@
 import * as task from './populate.js';
-import * as stat from './status.js';
 import './style.css';
+
+function saveLocal(list) {
+  window.localStorage.setItem('localTasks', JSON.stringify(list));
+}
 
 let list = [];
 const listEl = document.querySelector('ul');
