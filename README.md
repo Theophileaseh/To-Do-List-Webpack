@@ -8,11 +8,6 @@
 
 [Click to see Website](https://theophileaseh.github.io/To-Do-List-Webpack/)
 
-## Screenshot
-
-![Screenshot](./img/screenshot.png)
-
-
 
 ## Built With
 
