@@ -8,7 +8,9 @@ export const addList = () => {
 
   let listCode = '';
   listArray.forEach((element, index) => {
+
     const { list } = element;
+    
     if (index % 2 === 0) {
       listCode += `
         <div class="single-list div-style" id="${index}">
@@ -17,7 +19,7 @@ export const addList = () => {
             <input type="text" class="single-list-input main-inputs" value="${list}">
           </form>
           <div class="single-list-action-button">
-            <button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <button class = "delete-btn" onclick="removeList(\'${list}\')"><i class="fa-solid fa-trash-can"></i></button>
           </div>
         </div>
             `;
@@ -29,7 +31,7 @@ export const addList = () => {
         <input type="text" class="single-list-input main-inputs" value="${list}">
       </form>
       <div class="single-list-action-button">
-        <button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        <button class = "delete-btn" onclick="removeList(\'${list}\')"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
             `;
@@ -38,12 +40,13 @@ export const addList = () => {
   });
   listsList.innerHTML = listCode;
   localStorage.setItem('listData', JSON.stringify(listArray));
+  
 };
 
 window.removeList = (list) => {
   listArray = listArray.filter((elem) => elem.list !== list);
   addList();
-  console.log('removed');
+  // console.log('removed');
 };
 
 
@@ -71,11 +74,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // input field of list clicked event
 
-
+/*
 listsList.addEventListener('focusin', (e) => {
   if(e.target.className.includes('single-list-input')){
     const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML = '<button class = "delete-btn" onclick=\'removeList("${list}")\'><i class="fa-solid fa-trash-can"></i></button>';
+    parent.querySelector('.single-list-action-button').innerHTML = '<button class = "delete-btn" onclick="removeList(\'${list}\')"><i class="fa-solid fa-trash-can"></i></button>';
   }
 })
 listsList.addEventListener('focusout', (e) => {
@@ -96,6 +99,8 @@ listsList.addEventListener('focusout', (e) => {
     
   }
 })
+*/
+
 
 // drag element
 
