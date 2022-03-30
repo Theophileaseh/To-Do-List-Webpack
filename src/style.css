@@ -77,14 +77,20 @@ body {
 }
 
 .checkbox {
-  height: 20px;
+  height: 15px;
   width: 20px;
   cursor: pointer;
 }
 
 .move-btn {
+  border: none;
+  background: none;
+}
+
+.delete-btn {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .clear-all {
@@ -109,5 +115,21 @@ body {
   width: 90%;
   font-size: 16px;
   border: none;
+  color: #6b6969;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.none {
+  text-decoration: none;
+}
+
+.main-inputs:focus {
+  outline: none;
+}
+
+i {
   color: #6b6969;
 }
