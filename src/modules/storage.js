@@ -92,7 +92,7 @@ listsList.addEventListener('focusout', (e) => {
 
 // checkbox event
 
-let checkbox = document.querySelector('.checkbox');
+const checkbox = document.querySelector('.checkbox');
 listsList.addEventListener('change', function (e) { // eslint-disable-line
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
@@ -100,7 +100,7 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
 
     if (checked) {
       text.classList.add('line-through');
-      checkbox.checked = list.isCompleted;
+      checkbox.checked = list.isCompleted;   // eslint-disable-line
     } else {
       text.classList.remove('line-through');
     }
