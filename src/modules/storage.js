@@ -78,17 +78,16 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
 });
 
 listsList.addEventListener('focusout', (e) => {
-  if(e.target.className.includes('single-list-input')){
+  if (e.target.className.includes('single-list-input')) {
+    const inputValue = e.target.value;
+    const { id } = parent.id;     // eslint-disable-line
 
-    const inputValue = e.target.value
-    const {id} = parent.id;
-
-    listArray.forEach(list => {
-      if(id === list.index){
-        list.description = inputValue
+    listArray.forEach(list => {  // eslint-disable-line
+      if (id === list.index) {
+        list.description = inputValue;
       }
-    })
+    });
 
     localStorage.setItem('listData', JSON.stringify(listArray));
   }
-})
+});
