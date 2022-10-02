@@ -11,8 +11,10 @@ formSubmit.addEventListener('submit', (event) => {
   event.preventDefault();
   const listInput = {
     list: list.value,
+    isCompleted: false
   };
   listArray.push(listInput);
   addList();
   list.value = '';
+  isCompleted;
 });

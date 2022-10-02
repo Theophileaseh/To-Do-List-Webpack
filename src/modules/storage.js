@@ -1,40 +1,31 @@
 const listsList = document.querySelector('.today-lists');
+const updateForm = document.querySelector('.single-list-form')
 export let listArray = []; // eslint-disable-line
 
 /* eslint-disable no-unused-vars */
 
 export const addList = () => {
-  let listCode = '';
-  listArray.forEach((element, index) => {
-    const { list } = element;
-    if (index % 2 === 0) {
-      listCode += `
-        <div class="single-list div-style" id="${index}">
+  console.log(listArray[0])
+  const allLists = listArray.map((element, index) => (
+
+       `<div class="single-list div-style" id=${index}  ${element.isCompleted}>
           <form class="single-list-form">
             <input type="checkbox" class="checkbox">
-            <input type="text" class="single-list-input main-inputs" value="${list}">
+            <input type="text" class="single-list-input main-inputs" value="${element.list}">
           </form>
           <div class="single-list-action-button">
-            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
+            <button class = "delete-btn" onclick="removeList()"><i class="fa-solid fa-ellipse"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
           </div>
-        </div>
-            `; // eslint-disable-line
-    } else {
-      listCode += `
-        <div class="single-list div-style">
-          <form class="single-list-form">
-            <input type="checkbox" class="checkbox">
-            <input type="text" class="single-list-input main-inputs" value="${list}">
-          </form>
-          <div class="single-list-action-button">
-            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-          </div>
-        </div>
-            `; // eslint-disable-line
-    }
-    // console.log(index);
-  });
-  listsList.innerHTML = listCode;
+        </div>`
+
+  ));
+  
+  if (listArray.length === 0) {
+    listsList.innerHTML = '<h3 class="no-books-notification">Sorry there are no tasks available</h3>';
+  } else {
+    listsList.innerHTML = allLists;
+  }
+
   localStorage.setItem('listData', JSON.stringify(listArray));
 };
 
@@ -65,26 +56,34 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // input field of list clicked event
 
-/*
+
 listsList.addEventListener('focusin', (e) => {
   if(e.target.className.includes('single-list-input')){
     const parent = e.target.parentNode.parentNode;
     parent.querySelector('.single-list-action-button').innerHTML =
-    '<button class = "delete-btn" onclick="removeList('${list}')"> // eslint-disable-line
-    <i class="fa-solid fa-trash-can"></i></button>';
+    `<button class = "delete-btn" onclick="removeList('${list}')">
+    <i class="fa-solid fa-trash-can"></i></button>`;
   }
 })
-*/
+
+
 listsList.addEventListener('focusout', (e) => {
   if (e.target.className.includes('single-list-input')) {
     const inputValue = e.target.value;
-    const { id } = parent.id;     // eslint-disable-line
+    const { id } = e.target.parentNode.parentNode;     // eslint-disable-line
 
-    listArray.forEach(list => {  // eslint-disable-line
-      if (id === list.index) {
-        list.description = inputValue;
-      }
+    console.log(id)
+
+    
+    listArray.forEach((listItem, index) => {  // eslint-disable-line
+      
+
+        listArray[id].list = inputValue
+        console.log("index", index)
+  
     });
+
+    console.log(inputValue)
 
     localStorage.setItem('listData', JSON.stringify(listArray));
   }
@@ -97,19 +96,31 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
     const text = e.target.parentNode.querySelector('.single-list-input');
+    const { id } = e.target.parentNode.parentNode; 
+    console.log(id)
 
-    if (checked) {
-      text.classList.add('line-through');
-      checkbox.checked = list.isCompleted;   // eslint-disable-line
-    } else {
-      text.classList.remove('line-through');
-    }
+      
+
+
+      if (checked) {
+        console.log(listArray[id].isCompleted)
+
+        listArray[id].isCompleted = true;
+        text.classList.add('line-through');
+      } else {
+        text.classList.remove('line-through');
+        listArray[id].isCompleted = false;
+      }
+
+  localStorage.setItem('listData', JSON.stringify(listArray));
+
+
   }
 });
 
 // Remove completed list
 
 window.removeIsCompleted = (isCompleted) => {
-  listArray = listArray.filter((elem) => isCompleted);
+  listArray = listArray.filter((elem) => elem.isCompleted !== true);
   addList();
 };
