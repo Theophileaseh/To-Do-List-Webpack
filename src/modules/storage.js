@@ -14,7 +14,7 @@ export const addList = () => {
             <input type="text" class="single-list-input main-inputs" value="${element.list}">
           </form>
           <div class="single-list-action-button">
-            <button class = "delete-btn" onclick="removeList()"><i class="fa-solid fa-ellipse"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>'
+            <button class = "delete-btn" onclick="removeList()">1<i class="fa-solid fa-ellipse"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
         </div>`
 
@@ -30,6 +30,7 @@ export const addList = () => {
 };
 
 /* eslint-disable no-unused-vars */
+
 
 window.removeList = (list) => {
   listArray = listArray.filter((elem) => elem.list !== list);
@@ -62,13 +63,18 @@ listsList.addEventListener('focusin', (e) => {
     const parent = e.target.parentNode.parentNode;
     parent.querySelector('.single-list-action-button').innerHTML =
     `<button class = "delete-btn" onclick="removeList('${list}')">
-    <i class="fa-solid fa-trash-can"></i></button>`;
+    2<i class="fa-solid fa-trash-can"></i></button>`;
   }
 })
 
 
 listsList.addEventListener('focusout', (e) => {
   if (e.target.className.includes('single-list-input')) {
+
+    const parent = e.target.parentNode.parentNode;
+    parent.querySelector('.single-list-action-button').innerHTML =
+    `<button class = "delete-btn" onclick="removeList()">1<i class="fa-solid fa-ellipse"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>`;
+
     const inputValue = e.target.value;
     const { id } = e.target.parentNode.parentNode;     // eslint-disable-line
 
