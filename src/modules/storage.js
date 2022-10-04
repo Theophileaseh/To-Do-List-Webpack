@@ -1,20 +1,25 @@
 const listsList = document.querySelector('.today-lists');
-const updateForm = document.querySelector('.single-list-form')
+
 export let listArray = []; // eslint-disable-line
 
 /* eslint-disable no-unused-vars */
 
+
 export const addList = () => {
   console.log(listArray[0])
-  const allLists = listArray.map((element, index) => (
+  const allLists = listArray.map(({list, isCompleted}, index) => (
 
-       `<div class="single-list div-style" id=${index}  ${element.isCompleted}>
+
+       `<div class="single-list div-style" id=${index}  isCompleted=${isCompleted}  draggable="true">
           <form class="single-list-form">
             <input type="checkbox" class="checkbox">
-            <input type="text" class="single-list-input main-inputs" value="${element.list}">
+            <input type="text" class="single-list-input main-inputs" value="${list}">
           </form>
           <div class="single-list-action-button">
-            <button class = "delete-btn" onclick="removeList()">1<i class="fa-solid fa-ellipse"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+          <button class = "delete-btn" onClick="removeList('${list}')">
+          2<i class="fa-solid fa-trash-can"></i></button>
+            <button class = "move-btn" onmousedown="draggableList('${list}')">
+            1<i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
         </div>`
 
@@ -59,29 +64,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 listsList.addEventListener('focusin', (e) => {
-  if(e.target.className.includes('single-list-input')){
-    const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML =
-    `<button class = "delete-btn" onclick="removeList('${list}')">
-    2<i class="fa-solid fa-trash-can"></i></button>`;
-  }
+  console.log(e)
+  
+
+                                                                                                
 })
 
 
 listsList.addEventListener('focusout', (e) => {
-  if (e.target.className.includes('single-list-input')) {
-
-    const parent = e.target.parentNode.parentNode;
-    parent.querySelector('.single-list-action-button').innerHTML =
-    `<button class = "delete-btn" onclick="removeList()">1<i class="fa-solid fa-ellipse"></i></button>&nbsp;<button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>`;
+  console.log(e.target)
 
     const inputValue = e.target.value;
-    const { id } = e.target.parentNode.parentNode;     // eslint-disable-line
+    const { id } = e.target.parentNode.parentNode;     
 
     console.log(id)
 
     
-    listArray.forEach((listItem, index) => {  // eslint-disable-line
+    listArray.forEach((listItem, index) => {  
       
 
         listArray[id].list = inputValue
@@ -92,17 +91,64 @@ listsList.addEventListener('focusout', (e) => {
     console.log(inputValue)
 
     localStorage.setItem('listData', JSON.stringify(listArray));
-  }
+
 });
+
 
 // checkbox event
 
+window.addEventListener('load', (e) => {
+  console.log(e)
+  console.log("l;oadded")
+  const allTexts = document.querySelectorAll('.single-list').attributes.includes('isCompleted')
+  // const allCompleteds = allTexts.filter((item) => item.attributes[2].value == true)
+  // console.log(allCompleteds)
+  const {id} = allTexts[0]
+  console.log(allTexts[0].childNodes[1].childNodes)
+  console.log(allTexts)
+  const parent = allTexts.parentNode
+  console.log("parents", parent)
+
+  
+  const allCompleted = listArray.filter((item) => item.isCompleted == true)
+  console.log(allCompleted)
+  const {index} = allCompleted 
+
+  console.log(allCompleted.index)
+
+  if (e.target.childNode.childNode.className.includes('single-list-input')) {
+
+    const text = e.target.parentNode.querySelector('.single-list-input');
+    const { ids } = e.target.parentNode.parentNode; 
+
+
+  const allCompleted = listArray.filter((item) => item.isCompleted == true)
+  console.log(allCompleted)
+  const {index} = allCompleted 
+  const selected = document.querySelectorAll('#`#{id}`')
+  console.log(index)
+
+
+ // const { ids } = e.target.parentNode.parentNode;
+  console.log(id);
+  if (ids === id) {
+
+  text.classList.add('line-through');
+
+}
+  }
+ 
+
+})
+
+
 const checkbox = document.querySelector('.checkbox');
-listsList.addEventListener('change', function (e) { // eslint-disable-line
+listsList.addEventListener('change', function (e) { 
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
     const text = e.target.parentNode.querySelector('.single-list-input');
     const { id } = e.target.parentNode.parentNode; 
+    
     console.log(id)
 
       
@@ -126,7 +172,21 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
 
 // Remove completed list
 
-window.removeIsCompleted = (isCompleted) => {
+window.removeIsCompleted = () => {
   listArray = listArray.filter((elem) => elem.isCompleted !== true);
   addList();
 };
+
+
+// Move item
+
+window.draggableList = () => {
+  console.log("list moved")
+}
+
+// Refresh window
+
+window.refresh = () => {
+  location.reload(true)
+  console.log("refreshed")
+}

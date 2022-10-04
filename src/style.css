@@ -24,6 +24,22 @@ body {
   cursor: pointer;
 }
 
+.move-btn:hover {
+  cursor: move;
+}
+
+/* .delete-btn {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+} */
+
 .to-do-sec .container {
   width: 100%;
   max-width: 500px;

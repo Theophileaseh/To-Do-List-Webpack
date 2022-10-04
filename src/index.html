@@ -15,7 +15,7 @@
         <div class="container">
             <div class="heading-icon div-style">
                 <h2 class="sec-heading">Today's To Do</h2>
-                <button class="refresh-btn">
+                <button class="refresh-btn" onClick="refresh()">
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </button>
             </div>
@@ -33,7 +33,7 @@
                 
             </div>
             <div class="clear-all">
-                <button class="clear-all-btn" onclick="removeIsCompleted('${element.list}')">Clear all completed</button>
+                <button class="clear-all-btn" onclick="removeIsCompleted()">Clear all completed</button>
             </div>
         </div>
     </section>
