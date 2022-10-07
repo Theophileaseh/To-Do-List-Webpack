@@ -100,7 +100,7 @@ listsList.addEventListener('focusout', (e) => {
 window.addEventListener('load', (e) => {
   console.log(e)
   console.log("l;oadded")
-  const allTexts = document.querySelectorAll('.single-list').attributes.includes('isCompleted')
+  const allTexts = document.querySelectorAll('.single-list')
   // const allCompleteds = allTexts.filter((item) => item.attributes[2].value == true)
   // console.log(allCompleteds)
   const {id} = allTexts[0]
@@ -108,6 +108,9 @@ window.addEventListener('load', (e) => {
   console.log(allTexts)
   const parent = allTexts.parentNode
   console.log("parents", parent)
+
+  const coms = document.getElementsByName(isCompleted);
+  console.log(coms)
 
   
   const allCompleted = listArray.filter((item) => item.isCompleted == true)
