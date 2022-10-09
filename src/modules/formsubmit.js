@@ -10,18 +10,17 @@ function alerts(message) {
 }
 
 formSubmit.addEventListener('submit', (event) => {
-  if (list.value === '') {
-    event.preventDefault();
-  }
-  event.preventDefault();
+
   const listInput = {
     list: list.value,
     isCompleted: false
   };
 
   const result = listArray.filter((elem) => (elem.list === listInput.list));
-
-    if (result.length !== 0) {
+    
+  if (list.value === '') {
+    event.preventDefault();
+  } else if (result.length !== 0) {
       alerts('Sorry Task already exists');
     } else {
 

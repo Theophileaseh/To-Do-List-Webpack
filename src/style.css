@@ -24,8 +24,16 @@ body {
   cursor: pointer;
 }
 
+.sec-heading {
+  font-family: cursive;
+}
+
 .move-btn:hover {
   cursor: move;
+}
+
+.invisible{
+  display: none;
 }
 
 /* .delete-btn {
@@ -107,6 +115,10 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.single-list-input:disabled {
+  background: #fff;
 }
 
 .clear-all {
