@@ -1,20 +1,22 @@
 const listsList = document.querySelector('.today-lists');
 
-let listArray = [];
+export let listArray = []; // eslint-disable-line
 
-const addList = () => {
+/* eslint-disable no-unused-vars */
+
+export const addList = () => {
   let listCode = '';
   listArray.forEach((element, index) => {
     const { list } = element;
     if (index % 2 === 0) {
       listCode += `
-        <div class="single-list div-style">
+        <div class="single-list div-style" id="${index}">
           <form class="single-list-form">
             <input type="checkbox" class="checkbox">
-            <input type="text" id="single-list-item" class="single-list-input main-inputs" value="${list}">
+            <input type="text" class="single-list-input main-inputs" value="${list}">
           </form>
           <div class="single-list-action-button">
-          <button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
           </div>
         </div>
             `;
@@ -23,10 +25,10 @@ const addList = () => {
       <div class="single-list div-style">
       <form class="single-list-form">
         <input type="checkbox" class="checkbox">
-        <input type="text" id="single-list-items" class="single-list-input main-inputs" value="${list}">
+        <input type="text" class="single-list-input main-inputs" value="${list}">
       </form>
       <div class="single-list-action-button">
-      <button class = "move-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
             `;
@@ -36,7 +38,9 @@ const addList = () => {
   localStorage.setItem('listData', JSON.stringify(listArray));
 };
 
-window.removeBook = (list) => {
+/* eslint-disable no-unused-vars */
+
+window.removeList = (list) => {
   listArray = listArray.filter((elem) => elem.list !== list);
   addList();
 };
@@ -56,4 +60,34 @@ window.addEventListener('DOMContentLoaded', () => {
     listArray = lists;
   }
   addList();
+});
+
+// checkbox event
+
+listsList.addEventListener('change', function (e) { // eslint-disable-line
+  if (e.target.className.includes('checkbox')) {
+    const { checked } = e.target;
+    const text = e.target.parentNode.querySelector('.single-list-input');
+
+    if (checked) {
+      text.classList.add('line-through');
+    } else {
+      text.classList.remove('line-through');
+    }
+  }
+});
+
+listsList.addEventListener('focusout', (e) => {
+  if (e.target.className.includes('single-list-input')) {
+    const inputValue = e.target.value;
+    const { id } = parent.id;     // eslint-disable-line
+
+    listArray.forEach(list => {  // eslint-disable-line
+      if (id === list.index) {
+        list.description = inputValue;
+      }
+    });
+
+    localStorage.setItem('listData', JSON.stringify(listArray));
+  }
 });

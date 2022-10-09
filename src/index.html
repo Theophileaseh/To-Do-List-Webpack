@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do list</title>
     <link rel="stylesheet" href="style.css">
+
     <script src="https://kit.fontawesome.com/164f291a18.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -14,25 +15,25 @@
         <div class="container">
             <div class="heading-icon div-style">
                 <h2 class="sec-heading">Today's To Do</h2>
-                <button type="submit" class="refresh-btn">
+                <button class="refresh-btn">
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </button>
             </div>
             <div class="form-section div-style">
-                <form action="post" class="form">
+                <form class="form">
                     <div class="inputs">
-                        <input type="text" class="input-form main-inputs" placeholder="Add to your list">
+                        <input type="text" class="input-form main-inputs" id="list" placeholder="Add to your list">
                         <button type="submit" class="submit-btn">
                             <i class="fa-solid fa-arrow-up-right-dots"></i>
                         </button>
                     </div>
                 </form>
             </div>
-
-            <div class="today-lists"></div>
-
+            <div class="today-lists">
+                
+            </div>
             <div class="clear-all">
-                <button type="submit" class="clear-all-btn">Clear all completed</button>
+                <button class="clear-all-btn" onclick="removeIsCompleted('${list}')">Clear all completed</button>
             </div>
         </div>
     </section>
