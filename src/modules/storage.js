@@ -63,7 +63,6 @@ listsList.addEventListener('focusin', (e) => {
 });
 
 listsList.addEventListener('focusout', (e) => {
-
   const inputValue = e.target.value;
   const { id } = e.target.parentNode.parentNode;
 
@@ -96,7 +95,6 @@ listsList.addEventListener('change', (e) => {
     const { id } = e.target.parentNode.parentNode;
 
     if (checked) {
-
       listArray[id].isCompleted = true;
       //  listArray[id].list = listValue;
       text.classList.add('line-through');
@@ -122,47 +120,7 @@ window.removeIsCompleted = () => {
 // Refresh window
 
 window.refresh = () => {
-  history.go(0);
+  window.history.go(0);
 };
 
 // draggable
-
-listsList.addEventListener('mousedown', (e) => {
-  if (e.target.className.includes('move-btn')) {
-    const singleList = e.target.parentNode.parentNode.parentNode.querySelectorAll('.single-list');
-    singleList.forEach((item) => {
-      item.addEventListener('dragstart', dragStart);
-      item.addEventListener('dragend', dragEnd);
-    });
-
-    listsList.addEventListener('dragover', dragOver);
-    listsList.addEventListener('dragenter', dragEnter);
-    listsList.addEventListener('dragleave', dragLeave);
-    listsList.addEventListener('drop', dragDrop);
-
-    function dragEnter() {
-    }
-    function dragLeave() {
-    }
-
-    function dragOver(e) {
-      e.preventDefault();
-    }
-
-    let dragItem = null;
-
-    function dragStart() {
-      dragItem = this;
-      setTimeout(() => this.className = 'invisible', 0);
-    }
-
-    function dragEnd() {
-      this.className = 'item';
-      dragItem = null;
-    }
-
-    function dragDrop() {
-      this.append(dragItem);
-    }
-  }
-});
