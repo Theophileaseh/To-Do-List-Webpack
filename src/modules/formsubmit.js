@@ -1,4 +1,4 @@
-import { listArray, addList } from './storage.js';
+import { listArray, addList } from './storage';
 
 const list = document.querySelector('#list');
 
@@ -10,25 +10,22 @@ function alerts(message) {
 }
 
 formSubmit.addEventListener('submit', (event) => {
-
   const listInput = {
     list: list.value,
-    isCompleted: false
+    isCompleted: false,
   };
 
   const result = listArray.filter((elem) => (elem.list === listInput.list));
-    
+
   if (list.value === '') {
     event.preventDefault();
   } else if (result.length !== 0) {
-      alerts('Sorry Task already exists');
-    } else {
+    alerts('Sorry Task already exists');
+  } else {
+    listArray.push(listInput);
+    addList();
+    list.value = '';
 
-  listArray.push(listInput);
-  addList();
-  list.value = '';
-  isCompleted;
-
-  alerts('Congratulations. Task successfully added!');
-}
+    alerts('Congratulations. Task successfully added!');
+  }
 });
