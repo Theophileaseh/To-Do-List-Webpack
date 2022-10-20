@@ -113,13 +113,8 @@ listsList.addEventListener('change', (e) => {
 // Remove completed list
 
 window.removeIsCompleted = () => {
-  // eslint-disable-next-line no-restricted-globals
-  const result = confirm('Are you sure you want to delete the selected tasks?');
-if (result) {
-    
   listArray = listArray.filter((elem) => elem.isCompleted !== true);
   addList();
-}
 };
 
 // Refresh window

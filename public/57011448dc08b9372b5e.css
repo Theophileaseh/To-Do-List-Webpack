@@ -1,27 +1,16 @@
 
-      import API from "!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js";
-      import domAPI from "!../node_modules/style-loader/dist/runtime/styleDomAPI.js";
-      import insertFn from "!../node_modules/style-loader/dist/runtime/insertBySelector.js";
-      import setAttributes from "!../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js";
-      import insertStyleElement from "!../node_modules/style-loader/dist/runtime/insertStyleElement.js";
-      import styleTagTransformFn from "!../node_modules/style-loader/dist/runtime/styleTagTransform.js";
-      import content, * as namedExport from "!!../node_modules/css-loader/dist/cjs.js!./style.css";
-      
-      
+import api from "!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js" import domapi from "!../node_modules/style-loader/dist/runtime/styleDomAPI.js" import insertfn from "!../node_modules/style-loader/dist/runtime/insertBySelector.js" import setattributes from "!../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js" import insertstyleelement from "!../node_modules/style-loader/dist/runtime/insertStyleElement.js" import styletagtransformfn from "!../node_modules/style-loader/dist/runtime/styleTagTransform.js" import content,
+* as namedexport from "!!../node_modules/css-loader/dist/cjs.js!./style.css" var options = {}
 
-var options = {};
+options.styletagtransform = styleTagTransformFn
+options.setAttributes = setAttributes
 
-options.styleTagTransform = styleTagTransformFn;
-options.setAttributes = setAttributes;
+options.insert = insertFn.bind(null, "head")
 
-      options.insert = insertFn.bind(null, "head");
-    
-options.domAPI = domAPI;
-options.insertStyleElement = insertStyleElement;
+options.domAPI = domAPI
+options.insertStyleElement = insertStyleElement
 
-var update = API(content, options);
+var update = API(content, options)
 
-
-
-export * from "!!../node_modules/css-loader/dist/cjs.js!./style.css";
-       export default content && content.locals ? content.locals : undefined;
+export * from "!!../node_modules/css-loader/dist/cjs.js!./style.css"
+export default content && content.locals ? content.locals: undefined;styleTagTransformFnoptions.setAttributessetAttributesoptions.insertinsertFn.bindnull,options.domAPIdomAPIoptions.insertStyleElementinsertStyleElementvarupdateAPIexportfromexportdefaultcontentcontent.localscontent.localsdefaultcontentcontent.localscontent.locals
