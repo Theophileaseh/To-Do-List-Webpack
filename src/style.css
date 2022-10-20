@@ -24,6 +24,35 @@ body {
   cursor: pointer;
 }
 
+.sec-heading {
+  font-family: cursive;
+}
+
+.move-btn {
+  border: none;
+  background: none;
+}
+
+.move-btn:hover {
+  cursor: move;
+}
+
+.invisible {
+  display: none;
+}
+
+/* .delete-btn {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+} */
+
 .to-do-sec .container {
   width: 100%;
   max-width: 500px;
@@ -82,15 +111,18 @@ body {
   cursor: pointer;
 }
 
-.move-btn {
-  border: none;
-  background: none;
-}
-
 .delete-btn {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.fa-trash-can {
+  color: #c42d2d;
+}
+
+.single-list-input:disabled {
+  background: #fff;
 }
 
 .clear-all {
@@ -120,6 +152,7 @@ body {
 
 .line-through {
   text-decoration: line-through;
+  color: #c6c6c6;
 }
 
 .none {
