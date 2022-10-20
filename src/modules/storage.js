@@ -18,7 +18,6 @@ export const addList = () => {
             <button class = "move-btn" >
             <i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
-
         </div>`
 
   ));
@@ -29,25 +28,6 @@ export const addList = () => {
     listsList.innerHTML = allLists;
   }
 
-
-        </div>
-            `;
-    } else {
-      listCode += `
-      <div class="single-list div-style">
-      <form class="single-list-form">
-        <input type="checkbox" class="checkbox">
-        <input type="text" class="single-list-input main-inputs" value="${list}">
-      </form>
-      <div class="single-list-action-button">
-        <button class = "delete-btn" onclick="removeList('${list}')"><i class="fa-solid fa-trash-can"></i></button>
-      </div>
-    </div>
-            `;
-    }
-  });
-  listsList.innerHTML = listCode;
-
   localStorage.setItem('listData', JSON.stringify(listArray));
 };
 
@@ -56,6 +36,7 @@ export const addList = () => {
 window.removeList = (list) => {
   listArray = listArray.filter((elem) => elem.list !== list);
   addList();
+  // console.log('removed');
 };
 
 window.addEventListener('DOMContentLoaded', (e) => {
@@ -74,7 +55,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
   }
   addList();
 });
-
 
 // input field of list clicked event
 
@@ -108,11 +88,6 @@ window.addEventListener('load', (e) => {
 // checkbox event
 const checkbox = document.querySelector('.checkbox');
 listsList.addEventListener('change', (e) => {
-
-// checkbox event
-
-listsList.addEventListener('change', function (e) { // eslint-disable-line
-
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
     const text = e.target.parentNode.querySelector('.single-list-input');
@@ -135,10 +110,10 @@ listsList.addEventListener('change', function (e) { // eslint-disable-line
   }
 });
 
-
 // Remove completed list
 
 window.removeIsCompleted = () => {
+  // eslint-disable-next-line no-restricted-globals
   listArray = listArray.filter((elem) => elem.isCompleted !== true);
   addList();
 };
@@ -150,19 +125,3 @@ window.refresh = () => {
 };
 
 // draggable
-
-listsList.addEventListener('focusout', (e) => {
-  if (e.target.className.includes('single-list-input')) {
-    const inputValue = e.target.value;
-    const { id } = parent.id;     // eslint-disable-line
-
-    listArray.forEach(list => {  // eslint-disable-line
-      if (id === list.index) {
-        list.description = inputValue;
-      }
-    });
-
-    localStorage.setItem('listData', JSON.stringify(listArray));
-  }
-});
-
