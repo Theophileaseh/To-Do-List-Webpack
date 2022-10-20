@@ -12,6 +12,7 @@ function alerts(message) {
 formSubmit.addEventListener('submit', (event) => {
   const listInput = {
     list: list.value,
+
     isCompleted: false,
   };
 
@@ -28,4 +29,9 @@ formSubmit.addEventListener('submit', (event) => {
 
     alerts('Congratulations. Task successfully added!');
   }
+
+  };
+  listArray.push(listInput);
+  addList();
+  list.value = '';
 });
