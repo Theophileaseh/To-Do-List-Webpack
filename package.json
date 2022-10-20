@@ -1,13 +1,14 @@
 {
-  "name": "to-do-list-webpack",
+  "name": "to_do_list",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "private": true,
   "scripts": {
+    "start": "webpack serve  --open",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
-    "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack --watch",
+    "deploy": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -20,23 +21,32 @@
     "url": "https://github.com/Theophileaseh/To-Do-List-Webpack/issues"
   },
   "homepage": "https://github.com/Theophileaseh/To-Do-List-Webpack#readme",
+  "dependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "core-js": "^3.21.1",
+    "cross-fetch": "^3.1.5",
+    "gh-pages": "^3.2.3",
+    "lodash": "^4.17.21",
+    "regenerator-runtime": "^0.13.9"
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "babel-regenerator-runtime": "^6.5.0",
+    "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
-    "html-loader": "^3.1.0",
+    "html-loader": "^3.1.2",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
-    "webpack": "^5.70.0",
+    "webpack": "^5.71.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
+    "webpack-dev-server": "^4.8.0"
   }
 }

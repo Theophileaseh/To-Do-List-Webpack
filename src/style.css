@@ -152,6 +152,7 @@ body {
 
 .line-through {
   text-decoration: line-through;
+  color: #c6c6c6;
 }
 
 .none {
