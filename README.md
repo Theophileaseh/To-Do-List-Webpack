@@ -1,5 +1,3 @@
-# To-Do-List-Webpack![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # To Do List
 
 > This is an app built using javascript, HTML and CSS, used to managed tasks to be done.
@@ -19,6 +17,7 @@
 - CSS
 - HTML
 - Javascript
+- Webpack
 
 
 
