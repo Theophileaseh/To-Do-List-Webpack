@@ -1,8 +1,8 @@
 # To-Do-List-Webpack![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To Do List
 
-> Today's To Do List
+> This is an app built using javascript, HTML and CSS, used to managed tasks to be done.
 
 ## Website Link
 
@@ -27,6 +27,15 @@
 
 To get a local copy up and running follow these simple example steps.
 
+`` git clone https://github.com/Theophileaseh/To-Do-List-Webpack ``
+
+`` cd To-Do-List-Webpack ``
+
+Run `` npm i `` to install packages
+
+Run `` npm start `` to start the server
+
+To get a build version, run `` npm run build ``
 
 ## Authors
 
