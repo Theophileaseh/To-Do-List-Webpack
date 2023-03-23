@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
+  margin: 60px;
 }
 
 .refresh-btn {
@@ -26,6 +26,11 @@ body {
 
 .sec-heading {
   font-family: cursive;
+}
+
+.message-notification {
+  color: #1a8000;
+  text-align: center;
 }
 
 .move-btn {
@@ -99,10 +104,14 @@ body {
 .single-list {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .single-list-form {
   width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkbox {
@@ -165,4 +174,10 @@ body {
 
 i {
   color: #6b6969;
+}
+
+@media screen and (max-width: 768px) {
+  .to-do-sec {
+    margin: 20px 20px 190px 20px;
+  }
 }
