@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: #efefef;
+  background: #1f0923;
 }
 
 .div-style {
@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
+  margin: 60px;
 }
 
 .refresh-btn {
@@ -26,6 +26,12 @@ body {
 
 .sec-heading {
   font-family: cursive;
+  color: #fff;
+}
+
+.message-notification {
+  color: #dadada;
+  text-align: center;
 }
 
 .move-btn {
@@ -57,10 +63,10 @@ body {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  background: #fff;
+  background: #220032;
   top: 50%;
   left: 50%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  box-shadow: rgb(0 0 0) 0 3px 8px;
   border-radius: 5px;
 }
 
@@ -99,10 +105,14 @@ body {
 .single-list {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .single-list-form {
   width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkbox {
@@ -118,11 +128,11 @@ body {
 }
 
 .fa-trash-can {
-  color: #c42d2d;
+  color: #be2b6b;
 }
 
 .single-list-input:disabled {
-  background: #fff;
+  background: #220032;
 }
 
 .clear-all {
@@ -134,8 +144,11 @@ body {
   height: 60px;
   border: none;
   font-size: 16px;
-  color: grey;
   cursor: pointer;
+  background: #be2b6b;
+  color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 /* .single-list-input {
@@ -147,12 +160,13 @@ body {
   width: 90%;
   font-size: 16px;
   border: none;
-  color: #6b6969;
+  color: #fff;
+  background: #220032;
 }
 
 .line-through {
   text-decoration: line-through;
-  color: #c6c6c6;
+  color: #c6c6c67d;
 }
 
 .none {
@@ -161,8 +175,15 @@ body {
 
 .main-inputs:focus {
   outline: none;
+  background: #220032;
 }
 
 i {
-  color: #6b6969;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .to-do-sec {
+    margin: 20px 20px 190px 20px;
+  }
 }

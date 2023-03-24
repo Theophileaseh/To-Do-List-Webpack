@@ -4,12 +4,10 @@ const list = document.querySelector('#list');
 
 const formSubmit = document.querySelector('.form');
 
-function alerts(message) {
-  // eslint-disable-next-line no-alert
-  alert(message);
-}
+const messageContainer = document.querySelector('.message-notification');
 
 formSubmit.addEventListener('submit', (event) => {
+  event.preventDefault();
   const listInput = {
     list: list.value,
     isCompleted: false,
@@ -20,12 +18,12 @@ formSubmit.addEventListener('submit', (event) => {
   if (list.value === '') {
     event.preventDefault();
   } else if (result.length !== 0) {
-    alerts('Sorry Task already exists');
+    messageContainer.innerText = 'Sorry Task already exists';
   } else {
     listArray.push(listInput);
     addList();
     list.value = '';
 
-    alerts('Congratulations. Task successfully added!');
+    messageContainer.innerText = 'Congratulations. Task successfully added!';
   }
 });

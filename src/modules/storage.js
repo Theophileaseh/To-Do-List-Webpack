@@ -1,4 +1,5 @@
 const listsList = document.querySelector('.today-lists');
+const messageContainer = document.querySelector('.message-notification');
 
 export let listArray = []; // eslint-disable-line
 
@@ -96,7 +97,6 @@ listsList.addEventListener('change', (e) => {
 
     if (checked) {
       listArray[id].isCompleted = true;
-      //  listArray[id].list = listValue;
       text.classList.add('line-through');
       text.setAttribute('disabled', 'true');
     } else {
@@ -116,6 +116,7 @@ window.removeIsCompleted = () => {
   // eslint-disable-next-line no-restricted-globals
   listArray = listArray.filter((elem) => elem.isCompleted !== true);
   addList();
+  messageContainer.innerText = 'Completed Tasks Successfully Deleted';
 };
 
 // Refresh window
@@ -125,3 +126,43 @@ window.refresh = () => {
 };
 
 // draggable
+
+// let y = 0;
+
+// // Query the element
+// let ele;
+// let target;
+
+// const mouseMoveHandler = function (e) {
+//   // How far the mouse has been moved
+
+//   target = e.target;
+//   const dy = e.clientY - y;
+
+//   console.log(target, 'newpos');
+
+//   // Set the position of element
+//   target.style.top = `${target.offsetTop + dy}px`;
+
+//   // Reassign the position of mouse
+//   y = e.clientY;
+// };
+
+// const mouseUpHandler = function () {
+//   // Remove the handlers of `mousemove` and `mouseup`
+//   document.removeEventListener('mousedown', mouseMoveHandler);
+// };
+
+// // Handle the mousedown event
+// // that's triggered when user drags the element
+// const mouseDownHandler = function (e) {
+//   // Get the current mouse position
+//   y = e.clientY;
+//   // console.log(e, 'target');
+
+//   // Attach the listeners to `document`
+//   document.addEventListener('dragstart', mouseMoveHandler);
+//   document.addEventListener('dragend', mouseUpHandler);
+// };
+
+// listsList.addEventListener('mousedown', mouseDownHandler);
