@@ -127,50 +127,42 @@ window.refresh = () => {
 
 // draggable
 
-let y = 0;
+// let y = 0;
 
-// Query the element
-let ele;
-let target;
+// // Query the element
+// let ele;
+// let target;
 
+// const mouseMoveHandler = function (e) {
+//   // How far the mouse has been moved
 
-const mouseMoveHandler = function (e) {
-  // How far the mouse has been moved
+//   target = e.target;
+//   const dy = e.clientY - y;
 
-  target = e.target;
-  const dy = e.clientY - y;
+//   console.log(target, 'newpos');
 
-  console.log(target, 'newpos');
+//   // Set the position of element
+//   target.style.top = `${target.offsetTop + dy}px`;
 
-  // Set the position of element
-  target.style.top = `${target.offsetTop + dy}px`;
+//   // Reassign the position of mouse
+//   y = e.clientY;
+// };
 
-  // Reassign the position of mouse
-  y = e.clientY;
-  
-};
+// const mouseUpHandler = function () {
+//   // Remove the handlers of `mousemove` and `mouseup`
+//   document.removeEventListener('mousedown', mouseMoveHandler);
+// };
 
+// // Handle the mousedown event
+// // that's triggered when user drags the element
+// const mouseDownHandler = function (e) {
+//   // Get the current mouse position
+//   y = e.clientY;
+//   // console.log(e, 'target');
 
-const mouseUpHandler = function () {
-  // Remove the handlers of `mousemove` and `mouseup`
-  document.removeEventListener('mousedown', mouseMoveHandler);
-  
-};
+//   // Attach the listeners to `document`
+//   document.addEventListener('dragstart', mouseMoveHandler);
+//   document.addEventListener('dragend', mouseUpHandler);
+// };
 
-// Handle the mousedown event
-// that's triggered when user drags the element
-const mouseDownHandler = function (e) {
-
-    // Get the current mouse position
-    y = e.clientY;
-    // console.log(e, 'target');
-
-    // Attach the listeners to `document`
-    document.addEventListener('dragstart', mouseMoveHandler);
-    document.addEventListener('dragend', mouseUpHandler);
-
-};
-
-
-
-listsList.addEventListener('mousedown', mouseDownHandler);
+// listsList.addEventListener('mousedown', mouseDownHandler);
