@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: #efefef;
+  background: #1f0923;
 }
 
 .div-style {
@@ -26,10 +26,11 @@ body {
 
 .sec-heading {
   font-family: cursive;
+  color: #fff;
 }
 
 .message-notification {
-  color: #1a8000;
+  color: #dadada;
   text-align: center;
 }
 
@@ -62,10 +63,10 @@ body {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  background: #fff;
+  background: #220032;
   top: 50%;
   left: 50%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  box-shadow: rgb(0 0 0) 0 3px 8px;
   border-radius: 5px;
 }
 
@@ -127,11 +128,11 @@ body {
 }
 
 .fa-trash-can {
-  color: #c42d2d;
+  color: #be2b6b;
 }
 
 .single-list-input:disabled {
-  background: #fff;
+  background: #220032;
 }
 
 .clear-all {
@@ -145,6 +146,10 @@ body {
   font-size: 16px;
   color: grey;
   cursor: pointer;
+  background: #be2b6b;
+  color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 /* .single-list-input {
@@ -156,12 +161,13 @@ body {
   width: 90%;
   font-size: 16px;
   border: none;
-  color: #6b6969;
+  color: #fff;
+  background: #220032;
 }
 
 .line-through {
   text-decoration: line-through;
-  color: #c6c6c6;
+  color: #c6c6c67d;
 }
 
 .none {
@@ -170,10 +176,11 @@ body {
 
 .main-inputs:focus {
   outline: none;
+  background: #220032;
 }
 
 i {
-  color: #6b6969;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
