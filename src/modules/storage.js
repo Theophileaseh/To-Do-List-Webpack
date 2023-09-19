@@ -83,6 +83,19 @@ listsList.addEventListener('focusout', (e) => {
   }
 });
 
+listsList.addEventListener('change', (e) => {
+  if (e.target.className.includes('single-list-input')) {
+    const inputValue = e.target.value;
+    const { id } = e.target.parentNode.parentNode;
+
+    listArray.forEach((listItem, index) => {
+      listArray[id].list = inputValue;
+    });
+
+    localStorage.setItem('listData', JSON.stringify(listArray));
+  }
+});
+
 // load window event
 
 window.addEventListener('load', (e) => {
