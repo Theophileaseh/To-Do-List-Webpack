@@ -55,34 +55,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
   addList();
 });
 
-// input field of list clicked event
-
-listsList.addEventListener('focusin', (e) => {
-  if (e.target.className.includes('line-through')) {
-    const inputValue = e.target.value;
-    const { id } = e.target.parentNode.parentNode;
-
-    listArray.forEach((listItem, index) => {
-      listArray[id].list = inputValue;
-    });
-
-    localStorage.setItem('listData', JSON.stringify(listArray));
-  }
-});
-
-listsList.addEventListener('focusout', (e) => {
-  if (e.target.className.includes('line-through')) {
-    const inputValue = e.target.value;
-    const { id } = e.target.parentNode.parentNode;
-
-    listArray.forEach((listItem, index) => {
-      listArray[id].list = inputValue;
-    });
-
-    localStorage.setItem('listData', JSON.stringify(listArray));
-  }
-});
-
 listsList.addEventListener('change', (e) => {
   if (e.target.className.includes('single-list-input')) {
     const inputValue = e.target.value;
