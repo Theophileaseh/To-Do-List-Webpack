@@ -6,9 +6,8 @@ export let listArray = []; // eslint-disable-line
 /* eslint-disable no-unused-vars */
 
 export const addList = () => {
-  const allLists = listArray.map(({ list, isCompleted }, index) => (
-
-    `<div class="single-list div-style" id=${index}  isCompleted=${isCompleted}  draggable="true">
+  const allLists = listArray.map(
+    ({ list, isCompleted }, index) => `<div class="single-list div-style" id=${index}  isCompleted=${isCompleted}  draggable="true">
           <form class="single-list-form">
             <input type="checkbox" class="checkbox">
             <input type="text" class="single-list-input main-inputs" value="${list}" >
@@ -19,9 +18,8 @@ export const addList = () => {
             <button class = "move-btn" >
             <i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
-        </div>`
-
-  ));
+        </div>`,
+  );
 
   if (listArray.length === 0) {
     listsList.innerHTML = '<h3 class="no-books-notification">Sorry there are no tasks available</h3>';
@@ -60,18 +58,29 @@ window.addEventListener('DOMContentLoaded', (e) => {
 // input field of list clicked event
 
 listsList.addEventListener('focusin', (e) => {
+  if (e.target.className.includes('line-through')) {
+    const inputValue = e.target.value;
+    const { id } = e.target.parentNode.parentNode;
 
+    listArray.forEach((listItem, index) => {
+      listArray[id].list = inputValue;
+    });
+
+    localStorage.setItem('listData', JSON.stringify(listArray));
+  }
 });
 
 listsList.addEventListener('focusout', (e) => {
-  const inputValue = e.target.value;
-  const { id } = e.target.parentNode.parentNode;
+  if (e.target.className.includes('line-through')) {
+    const inputValue = e.target.value;
+    const { id } = e.target.parentNode.parentNode;
 
-  listArray.forEach((listItem, index) => {
-    listArray[id].list = inputValue;
-  });
+    listArray.forEach((listItem, index) => {
+      listArray[id].list = inputValue;
+    });
 
-  localStorage.setItem('listData', JSON.stringify(listArray));
+    localStorage.setItem('listData', JSON.stringify(listArray));
+  }
 });
 
 // load window event
