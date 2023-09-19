@@ -10,7 +10,7 @@
 
 ## Screenshot
 
-![Screenshot](./img/screenshot.png)
+![Screenshot](./img/to-do.png)
 
 
 
@@ -19,6 +19,7 @@
 - CSS
 - HTML
 - Javascript
+- Webpack
 
 
 
