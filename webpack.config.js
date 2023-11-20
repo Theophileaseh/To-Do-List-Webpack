@@ -38,7 +38,7 @@ module.exports = {
   },
 
   // this shows the source of each file on the console
-  devtool: 'source-map',
+  // devtool: 'source-map',
 
   // local server
   devServer: {
