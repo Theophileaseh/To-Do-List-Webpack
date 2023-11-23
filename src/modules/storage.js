@@ -6,9 +6,8 @@ export let listArray = []; // eslint-disable-line
 /* eslint-disable no-unused-vars */
 
 export const addList = () => {
-  const allLists = listArray.map(({ list, isCompleted }, index) => (
-
-    `<div class="single-list div-style" id=${index}  isCompleted=${isCompleted}  draggable="true">
+  const allLists = listArray.map(
+    ({ list, isCompleted }, index) => `<div class="single-list div-style" id=${index}  isCompleted=${isCompleted}  draggable="true">
           <form class="single-list-form">
             <input type="checkbox" class="checkbox">
             <input type="text" class="single-list-input main-inputs" value="${list}" >
@@ -19,9 +18,8 @@ export const addList = () => {
             <button class = "move-btn" >
             <i class="fa-solid fa-ellipsis-vertical"></i></button>
           </div>
-        </div>`
-
-  ));
+        </div>`,
+  );
 
   if (listArray.length === 0) {
     listsList.innerHTML = '<h3 class="no-books-notification">Sorry there are no tasks available</h3>';
@@ -57,21 +55,17 @@ window.addEventListener('DOMContentLoaded', (e) => {
   addList();
 });
 
-// input field of list clicked event
+listsList.addEventListener('change', (e) => {
+  if (e.target.className.includes('single-list-input')) {
+    const inputValue = e.target.value;
+    const { id } = e.target.parentNode.parentNode;
 
-listsList.addEventListener('focusin', (e) => {
+    listArray.forEach((listItem, index) => {
+      listArray[id].list = inputValue;
+    });
 
-});
-
-listsList.addEventListener('focusout', (e) => {
-  const inputValue = e.target.value;
-  const { id } = e.target.parentNode.parentNode;
-
-  listArray.forEach((listItem, index) => {
-    listArray[id].list = inputValue;
-  });
-
-  localStorage.setItem('listData', JSON.stringify(listArray));
+    localStorage.setItem('listData', JSON.stringify(listArray));
+  }
 });
 
 // load window event
@@ -102,7 +96,7 @@ listsList.addEventListener('change', (e) => {
     } else {
       text.classList.remove('line-through');
       listArray[id].isCompleted = false;
-      text.setAttribute('disabled', 'false');
+      text.removeAttribute('disabled', 'true');
       //  listArray[id].list = listValue;
     }
 
@@ -124,45 +118,3 @@ window.removeIsCompleted = () => {
 window.refresh = () => {
   window.history.go(0);
 };
-
-// draggable
-
-// let y = 0;
-
-// // Query the element
-// let ele;
-// let target;
-
-// const mouseMoveHandler = function (e) {
-//   // How far the mouse has been moved
-
-//   target = e.target;
-//   const dy = e.clientY - y;
-
-//   console.log(target, 'newpos');
-
-//   // Set the position of element
-//   target.style.top = `${target.offsetTop + dy}px`;
-
-//   // Reassign the position of mouse
-//   y = e.clientY;
-// };
-
-// const mouseUpHandler = function () {
-//   // Remove the handlers of `mousemove` and `mouseup`
-//   document.removeEventListener('mousedown', mouseMoveHandler);
-// };
-
-// // Handle the mousedown event
-// // that's triggered when user drags the element
-// const mouseDownHandler = function (e) {
-//   // Get the current mouse position
-//   y = e.clientY;
-//   // console.log(e, 'target');
-
-//   // Attach the listeners to `document`
-//   document.addEventListener('dragstart', mouseMoveHandler);
-//   document.addEventListener('dragend', mouseUpHandler);
-// };
-
-// listsList.addEventListener('mousedown', mouseDownHandler);

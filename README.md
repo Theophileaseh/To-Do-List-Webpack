@@ -8,7 +8,7 @@
 
 ## Screenshot
 
-![Screenshot](./img/screenshot.png)
+![Screenshot](./img/to-do.png)
 
 
 
