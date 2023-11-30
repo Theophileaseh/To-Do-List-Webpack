@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
 
   entry: ['babel-regenerator-runtime', './src/index.js'],
   plugins: [
